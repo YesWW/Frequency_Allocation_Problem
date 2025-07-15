@@ -1,0 +1,74 @@
+top_unit_level: 3
+bottom_unit_level: 6
+
+unit_name: {0: 'Base', 1: 'Corps', 2: 'Division', 3: 'Brigade', 4: 'Battalion', 5: 'Company', 6: 'Platoon', 7: 'Squad'}  # key: unit_level
+
+# IAB Sync
+iab_sync : False
+# Communication parameters
+comm_distance:  # km
+  access: 2  # Access network
+  IAB: 5  # In-band backhaul
+  trunk: 35  # Trunk network
+CIR_thresh:  # dB
+  access: 8
+  IAB: 8
+  trunk: 22
+tx_power:  # Watt
+  access: 20
+  IAB: 20
+  trunk: 1
+freq:  # MHz
+  access: 2250
+  IAB: 2250
+  trunk: 7300
+num_freq_channel:
+  access: 7
+  IAB: 7
+  trunk: 5
+ant_height:  # antenna height for COST Hata model(m)
+  hb: 30  # base station
+  hr: 1  # terminal
+
+
+# Base node parameters
+num_base_node: 0
+node_base_trial_cnt: 1000
+node_dist_max: 35
+node_dist_min: {1: 20, 2: 20, 3: 20, 4: 20, 5: 20, 6: 20, 7: 20}  # key: top_unit_level
+max_base_link: 4
+max_base_node: {1: 20, 2: 12, 3: 4, 4: 1, 5: 0, 6: 0, 7: 0}  # key: top_unit_level
+
+# Combat unit parameters
+max_sub_unit: {1: 3, 2: 3, 3: 3, 4: 3, 5: 3, 6: 3, 7: 0}  # key: unit_level
+comm_ability:
+  1: {access: True, IAB: False, trunk: True}
+  2: {access: True, IAB: False, trunk: True}
+  3: {access: True, IAB: False, trunk: True}
+  4: {access: True, IAB: False, trunk: True}
+  5: {access: True, IAB: True, trunk: False}
+  6: {access: True, IAB: True, trunk: False}
+  7: {access: True, IAB: True, trunk: False}
+AOR: {1: [150, 100], 2: [60, 30], 3: [15, 10], 4: [8, 4], 5: [4, 3], 6: [4, 3], 7: [4, 3]}  # key: unit_level
+deploy_region:
+  level_1_3:
+    0: {low: [ -0.5,   0.1], high: [  0  ,  0.5]}
+    1: {low: [    0,   0.1], high: [  0.5,  0.5]}
+    2: {low: [ -0.5,  -0.3], high: [  0.5,    0]}
+  level_4_6:
+    0: {low: [ -0.5,   0.0], high: [-0.16,  0.5]}
+    1: {low: [-0.16,   0.0], high: [ 0.16,  0.5]}
+    2: {low: [ 0.16,   0.0], high: [  0.5,  0.5]}
+  level_7: {low: [ -0.5,   0.0], high: [  0.5,  0.9]}
+
+color_map:
+  0: red
+  1: blue
+  2: cyan
+  3: yellow
+  4: orange
+  5: purple
+  6: brown
+  7: green
+
+

@@ -1,0 +1,46 @@
+num_freq_ch: 7
+
+power_attn.min: -160
+power_attn.max: 0
+power_attn.num_level: 161
+#max_channel: 3   # Maximum channel size
+
+
+model.d_model: 128
+model.n_head: 4
+model.dim_feedforward: 256
+model.actor_num_layers: 6
+model.critic_num_layers: 6
+model.dropout: 0.0
+
+train.num_graph_repeat: 10000  # original 10000
+train.network_type: 'iab'
+train.train_dataset: 'train_iab.pt'
+train.eval_dataset: 'test.iab.pt'
+train.graph_batch_size: 32
+train.cir_thresh: 8  # CIR threshold for valid reception in dB
+train.gamma: 0.99  # reward discount factor
+train.lambda: 0.9  # parameter for lambda return (0: TD, 1: MC)
+train.buffer_batch_size: 64 
+train.actor_lr: 0.0003  # actor learning rate
+train.critic_lr: 0.0003  # critic learning rate
+train.entropy_loss_weight: 0.1
+train.clip_max_norm: 0.01
+train.num_train_iter: 1
+train.PPO_clip: 0.2
+train.act_prob_ratio_exponent_clip: 10.0
+train.eval_period: 5
+train.eval_batch_size: 5  # Controls how many eval batch size are in the data
+train.graph_sample: 20  # Controls how many graphs are displayed on the Evaluation Process
+
+eval.iter : 10
+eval.use_graph: True
+eval.graph_color_map:
+  0: red
+  1: blue
+  2: green
+  3: yellow
+  4: orange
+  5: purple
+  6: brown
+  7: cyan
